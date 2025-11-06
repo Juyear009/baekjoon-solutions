@@ -17,9 +17,7 @@ def dfs():
         result = l
         continue
     for i in dice:
-      newX = x
-      newY = y
-      newL = l + 1
+      newX, newY = x, y
       if y % 2 == 0:
         newX += i
         if newX >= 10:
@@ -34,9 +32,9 @@ def dfs():
         newX,newY = ledders[(newX,newY)]
       elif (newX,newY) in snakes:
         newX,newY = snakes[(newX,newY)]
-      if newY <= 9 and visit[newY][newX] > newL:
-        s.append((newX,newY,newL))
-        visit[newY][newX] = newL
+      if newY <= 9 and visit[newY][newX] > l+1:
+        s.append((newX,newY,l+1))
+        visit[newY][newX] = l+1
   return result
       
 

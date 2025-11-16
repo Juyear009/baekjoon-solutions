@@ -18,10 +18,9 @@ def dijkstra(start, end):
 input = sys.stdin.readline
 
 N,E = map(int,input().split())
-
 graph = [[] for _ in range(N+1)]
 
-for i in range(E):
+for _ in range(E):
   a,b,c = map(int,input().split())
   graph[a].append((b,c))
   graph[b].append((a,c))

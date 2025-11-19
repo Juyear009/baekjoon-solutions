@@ -12,4 +12,4 @@ for i in range(1,N):
         temp = dp[j]
   dp[i] = temp + 1
 
-print(dp)
+print(max(dp))

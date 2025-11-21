@@ -1,20 +1,19 @@
 import sys
 
 def solution():
-    dist = [float('inf')] * (N+1)
-    dist[1] = 0
+    dist = [0] * (N+1)
 
     for _ in range(N-1):
         check = False
         for u,v,w in edges:
-            if dist[u] != float('inf') and dist[v] > dist[u] + w:
+            if dist[v] > dist[u] + w:
                 dist[v] = dist[u] + w
                 check = True
         if not check:
             break
     
     for u,v,w in edges:
-        if dist[u] != float('inf') and dist[v] > dist[u] + w:
+        if dist[v] > dist[u] + w:
             return True
     return False
 

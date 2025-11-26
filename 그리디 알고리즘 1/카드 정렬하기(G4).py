@@ -12,7 +12,6 @@ for i in range(N):
 result = 0
 
 while len(nums) > 1:
-  print(nums)
   c1 = heapq.heappop(nums)
   c2 = heapq.heappop(nums)
   result += c1 + c2

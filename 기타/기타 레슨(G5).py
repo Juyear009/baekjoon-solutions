@@ -29,7 +29,4 @@ def binary_search():
 N,M = map(int,input().split())
 nums = list(map(int,input().split()))
 
-if N == M:
-    print(max(nums))
-else:
-    print(binary_search())
+print(binary_search())

@@ -21,22 +21,17 @@ def bfs():
                     queue.append((newX,newY))
     return result
 
-
+input = sys.stdin.readline
 N,M = map(int,input().split())
-graph = []
+graph = [list(map(int,input().split())) for _ in range(N)]
 cheese = set()
-
-for i in range(N):
-    temp = list(map(int,input().split()))
-    graph.append(temp)
-
 cnt = []
 
 while True:
-    res = bfs()
-    if res == 0:
+    cheeseCnt = bfs()
+    if cheeseCnt == 0:
         break
-    cnt.append(res)
+    cnt.append(cheeseCnt)
 
 print(len(cnt))
 print(cnt[-1])

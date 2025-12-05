@@ -11,7 +11,6 @@ for i in range(1,len(word2)+1):
       dp[i][j] = max(dp[i-1][j], dp[i][j-1])
 
 print(dp[-1][-1])
-print(dp)
 i = len(word2)
 j = len(word1)
 lcs = []

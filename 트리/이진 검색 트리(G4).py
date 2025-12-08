@@ -37,7 +37,7 @@
 # postorder(root)
 
 import sys
-sys.setrecursionlimit(10**6)
+sys.setrecursionlimit(10**9)
 input = sys.stdin.readline
 
 pre = []
@@ -54,7 +54,7 @@ def solve(start,end):
   
   root = pre[start]
   idx = start + 1
-  while idx <= end and idx < root:
+  while idx <= end and pre[idx] < root:
     idx += 1
 
   solve(start+1, idx-1)

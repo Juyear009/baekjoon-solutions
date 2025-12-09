@@ -24,7 +24,6 @@ for i in range(n):
     subA.append(sumA[j]-sumA[i])
 
 for i in range(m):
-  subB.append(sumB[i])
   for j in range(i+1,m+1):
     subB.append(sumB[j]-sumB[i])
 

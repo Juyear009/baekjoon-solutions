@@ -1,18 +1,20 @@
+def solve(s1,e1,s2,e2):
+  if s1 > e1 or s2 > e2:
+    return
+  
+  root = postorder[e2]
+  print(root, end=" ")
 
-class Node():
-  def __init__(self,val):
-    self.val = val
-    self.left = None
-    self.right = None
+  idx = inorder.index(root)
 
-def insert(root,val):
-  if root == None:
-    return Node(val)
-  elif root.val < val:
-    root.right = insert(root.right,val)
-  elif root.val > val:
-    root.left = insert(root.left,val)
-  return root
+  left = idx - s1
 
-def solve():
-  pass
+  solve(s1,idx-1,s2,s2+left-1)
+
+  solve(idx+1,e1,s2+left,e2-1)
+
+n = int(input())
+inorder = list(map(int,input().split()))
+postorder = list(map(int,input().split()))
+
+solve(0,n-1,0,n-1)

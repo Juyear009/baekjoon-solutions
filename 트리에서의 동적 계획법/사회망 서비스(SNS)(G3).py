@@ -11,14 +11,11 @@ def dfs():
           if newNode != parent:
             stack.append((newNode,node,False))
     else:
-      if len(tree[node]) == 1 and tree[node][0] == parent:
-        dp[node][1] = 1
-      else:
-        for child in tree[node]:
-          if child != parent:
-            dp[node][0] += dp[child][1]
-            dp[node][1] += min(dp[child][0], dp[child][1])
-        dp[node][1] += 1
+      for child in tree[node]:
+        if child != parent:
+          dp[node][0] += dp[child][1]
+          dp[node][1] += min(dp[child][0], dp[child][1])
+      dp[node][1] += 1
 
 
 input = sys.stdin.readline

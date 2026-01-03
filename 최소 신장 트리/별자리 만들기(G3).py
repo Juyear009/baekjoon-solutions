@@ -15,12 +15,12 @@ def union(x,y):
 
 n = int(input())
 edges = []
-stars = [list(map(float,input().split()))]
+stars = []
 parent = [i for i in range(n)]
 
-for i in range(1,n):
-  x,y = list(map(float,input().split()))
-  stars.append([x,y])
+for i in range(n):
+  x,y = map(float,input().split())
+  stars.append((x,y))
   for j in range(i):
     x1,y1 = stars[j]
     length = math.sqrt(abs(x-x1)**2 + abs(y-y1)**2)
@@ -30,13 +30,11 @@ edges.sort()
 mst = 0
 cnt = 0
 
-if edges:
-  for c,a,b in edges:
-    if union(a,b):
-      mst += c
-      cnt += 1
-      if cnt == n-1:
-        print(f"{mst:.2f}")
-        break
-else:
-  print(0)
+for c,a,b in edges:
+  if union(a,b):
+    mst += c
+    cnt += 1
+    if cnt == n-1:
+      break
+
+print(f"{mst:.2f}")

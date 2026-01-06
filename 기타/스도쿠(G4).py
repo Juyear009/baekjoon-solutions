@@ -31,7 +31,7 @@ def sdoku(idx):
     if idx == len(v):
         for i in range(9):
             for j in nums[i]:
-              print(j,end="")
+                print(j,end="")
             print()
         sys.exit()
 

@@ -11,7 +11,6 @@ def bfs(s):
         if not visited[newNode]:
           queue.append(newNode)
           visited[newNode] = True
-  print(visited)
   return visited[E]
 
 def solution():
@@ -25,16 +24,18 @@ def solution():
         check = True
     if not check:
       break
-
-  cycleNode = None
+  
+  cycleNodes = []
   for u,v,w in edges:
     if dist[v] < dist[u] - w + benefit[v]:
       dist[v] = dist[u] - w + benefit[v]
-      cycleNode = v
-  print(cycleNode)
-  if cycleNode != None and bfs(cycleNode):
-    print("Gee")
-  elif dist[E] == -float("INF"):
+      cycleNodes.append(v)
+
+  for node in cycleNodes:
+    if bfs(node):
+      print("Gee")
+      return
+  if dist[E] == -float("INF"):
     print("gg")
   else:
     print(dist[E])

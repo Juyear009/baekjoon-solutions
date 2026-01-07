@@ -29,6 +29,5 @@ for i in range(N):
 
 dist = [[float('INF') for _ in range(M)] for _ in range(N)]
 dist[0][0] = 0
-print(dist)
 dijkstra()
 print(dist[-1][-1])
